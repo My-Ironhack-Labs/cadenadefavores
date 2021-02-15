@@ -23,10 +23,13 @@ router.get('/nuevo', (req, res) => {
 })
 
 router.post('/nuevo', (req, res) => {
-    const {title, description,receive} = req.body
-
+    const {title, description,receive, latitude, longitude} = req.body
+const location={
+    type:'Point',
+    coordinates:[latitude, longitude]
+}
     Favour
-    .create({title, description,receive})
+    .create({title, description,receive,location})
     .then(user=>res.redirect('/favores'))
         
     .catch(err=>console.log(err))
@@ -51,10 +54,15 @@ router.get('/editar/:_id', (req,res)=>{
 
 router.post('/editar/:_id',(req,res)=>{
     const _id= req.params._id
-    const {title, description}=req.body
+    const {title, description,  latitude, longitude}=req.body
+    const location={
+        type:'Point',
+        coordinates:[latitude, longitude]
+    }
     Favour
-    .findByIdAndUpdate(_id,{title,description})
-    .then(()=>res.redirect('/favores/detalles'))
+    .findByIdAndUpdate(_id,{title,description,location})
+    .then(()=>res.redirect('/favores'))
+    // REDIRIGIR AL FAVOR EDITADO
     .catch(err=>console.log(err))
 })
 router.post('/eliminar/:_id',(req,res)=>{

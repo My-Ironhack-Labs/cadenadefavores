@@ -1,12 +1,13 @@
 <div class="container">
   <div class="row justify-content-center">
-    <h2> Detalles Favores Carlos </h2>
+    <h2> Detalles Favores</h2>
     <hr>
     <div class="col-md-12">
       <ul>
         <li class="favourList">
           {{title}}
           {{description}}
+          {{location}}
           <a class="btn btn-dark" href="/favores/editar/{{_id}}">Editar</a>
           <form method="POST" action="/favores/eliminar/{{_id}}">
             <button type="submit" class="btn btn-dark">Borrar</button>

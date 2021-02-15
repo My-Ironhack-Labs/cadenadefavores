@@ -5,5 +5,6 @@ module.exports = app => {
     app.use('/inicio', require('./auth.routes.js'))
     app.use('/usuario', require('./user.routes.js'))
     app.use('/favores', require('./favour.routes.js'))
+    app.use('/api', require('./api.routes.js'))
 
 }
