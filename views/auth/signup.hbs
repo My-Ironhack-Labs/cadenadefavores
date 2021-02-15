@@ -1,0 +1,36 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-5">
+
+            <h1>Registro</h1>
+
+            <form method="POST" action="/inicio/registro">
+
+                <div class="form-group">
+                    <label>Nombre de usuario</label>
+                    <input type="text" class="form-control" name="username">
+                </div>
+
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block" >Regístrate</button>
+                <small class="text-muted">¿Ya tienes cuenta con nosotros? <a href="/inicio/iniciar-sesion">¡Inicia sesión aquí!</a></small><br>
+
+
+                {{#if errorMsg}}
+                <div class="error-message">
+                    {{errorMsg}}</div>
+                {{/if}}
+
+            </form>
+        </div>
+    </div>
+
+
+
+</div>

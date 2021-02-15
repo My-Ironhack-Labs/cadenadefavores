@@ -1,0 +1,14 @@
+<div>Private page</div>
+{{#if user}}
+  <div>
+    <h1>Who's the best developer?</h1>
+    <h1>You are, <span style="color: red;">{{ user.username}}</span>. You are! </h1>
+    <img src="http://media.giphy.com/media/UsK5GqD3e0huU/giphy.gif" alt="You rock.">
+    <a href="/">Index</a>
+        <a href="/favores">Lista de favores</a>
+        <a href="/usuario/editar/{{user._id}}">Editar usuario</a>
+  <form method="POST" action="/usuario/dar-de-baja/{{user._id}}">
+            <button type="submit" class="btn btn-dark">Darse de baja</button>
+          </form>
+  </div>
+{{/if}}
