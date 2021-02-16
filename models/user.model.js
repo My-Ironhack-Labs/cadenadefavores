@@ -16,7 +16,10 @@ const userSchema = new Schema({
 
     },
     description: String,
-    avatar: String,//meter imagen por defecto
+    avatar: {
+        type: String,
+        default: '/images/logo_small_icon_only_inverted.png'
+    },//meter imagen por defecto
     role: {
         type: String,
         default: 'user',
