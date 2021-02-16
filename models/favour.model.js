@@ -21,6 +21,8 @@ const favourSchema = new Schema({
         },
         coordinates: [Number]
     },
+    address: String,
+
     status: {
         type: String,
         default: 'active',

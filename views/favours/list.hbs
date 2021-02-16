@@ -10,6 +10,7 @@
         <li class="favourList">
           {{title}}
           {{description}}
+          <p id="address">{{address}}</p>
           <a class="btn btn-dark" href="/favores/detalles/{{_id}}">Detalles</a>
           <a class="btn btn-dark" href="/favores/editar/{{_id}}">Editar</a>
           <form method="POST" action="favores/eliminar/{{_id}}">
