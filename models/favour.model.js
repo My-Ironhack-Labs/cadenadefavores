@@ -43,5 +43,10 @@ const favourSchema = new Schema({
     timestamps: true
 });
 
+favourSchema.statics.countGivers = function (id) {
+    console.log('hola', id)
+    return this.count({ give: id })
+}
+
 const Favour = mongoose.model("Favour", favourSchema);
 module.exports = Favour;

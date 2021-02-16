@@ -14,7 +14,7 @@ router.get('/inicio/perfil', ensureLogin.ensureLoggedIn(), (req, res) => {
 router.get('/registro', (req, res) => res.render('./auth/signup'))
 router.post("/registro", (req, res, next) => {
 
-    const { username, password} = req.body
+    const { username, password } = req.body
     if (username === "" || password === "") {
         res.render("auth/signup", { errorMsg: "Rellena los campos" })
         return
