@@ -4,11 +4,10 @@ const User = require('../models/user.model')
 const bcrypt = require("bcrypt")
 const bcryptSalt = 10
 const passport = require("passport")
-const ensureLogin = require('connect-ensure-login')
 
 
 
-router.get('/inicio/perfil', ensureLogin.ensureLoggedIn(), (req, res) => {
+router.get('/inicio/perfil', (req, res) => {
     res.render('auth/private', { user: req.user })
 })
 router.get('/registro', (req, res) => res.render('./auth/signup'))
