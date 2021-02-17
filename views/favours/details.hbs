@@ -5,16 +5,19 @@
     <div class="col-md-12">
       <ul>
         <li class="favourList">
-          {{title}}
-          {{description}}
-          {{location}}
-          {{address}}
-          <a class="btn btn-dark" href="/favores/editar/{{_id}}">Editar</a>
+          <p>{{title}}</p>
+          <p>{{description}}</p>
+          <p>{{address}}</p>
+          <p>{{status}}</p>
+          <a class="btn btn-success" href="/favores/editar/{{_id}}">Editar</a>
+          <button id="hacerFav" type="button" class="btn btn-success">Hacer favor</button>
+          <a href="/favores" class="btn btn-success">Favores</a>
           <form method="POST" action="/favores/eliminar/{{_id}}">
-            <button type="submit" class="btn btn-dark">Borrar</button>
+            <button type="submit" class="btn btn-success">Borrar</button>
           </form>
           <hr>
         </li>
       </ul>
     </div>
+    <script src="/javascripts/status.js"></script>
   </div>

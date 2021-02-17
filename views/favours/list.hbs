@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <h2> Favores </h2>
     <hr>
-    <a class="btn btn-dark" href="/favores/nuevo">Nuevo favor</a>
+    <a class="btn btn-success" href="/favores/nuevo">Nuevo favor</a>
     <hr>
     <div class="col-md-12">
       <ul>
@@ -11,11 +11,12 @@
           <p>{{title}}</p>
           <p>{{description}}</p>
           <p id="address">{{address}}</p>
+          <p>{{status}}</p>
           <p class="d-none">{{_id}}</p>
-          <a class="btn btn-dark" href="/favores/detalles/{{_id}}">Detalles</a>
-          <a class="btn btn-dark" href="/favores/editar/{{_id}}">Editar</a>
+          <a class="btn btn-success" href="/favores/detalles/{{_id}}">Detalles</a>
+          <a class="btn btn-success" href="/favores/editar/{{_id}}">Editar</a>
           <form method="POST" action="favores/eliminar/{{_id}}">
-            <button type="submit" class="btn btn-dark">Borrar</button>
+            <button type="submit" class="btn btn-success">Borrar</button>
           </form>
           <hr>
         </li>
