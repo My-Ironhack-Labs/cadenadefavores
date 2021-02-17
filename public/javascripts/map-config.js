@@ -29,7 +29,8 @@ function geocodeAddress(geocoder, myMap) {
           `<div>` +
           `<p> ${par[1].innerHTML} </p>` +
           `<p> ${par[2].innerHTML} </p>` +
-          `<a href="/favores/detalles/${par[3].innerHTML} ">Link</a> ` +
+          `<p> ${par[3].innerHTML} </p>` +
+          `<a href="/favores/detalles/${par[4].innerHTML} ">Link</a> ` +
           `</div>` +
           `</div>`;
         const infowindow = new google.maps.InfoWindow({
