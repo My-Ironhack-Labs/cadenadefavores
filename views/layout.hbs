@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,44 +9,46 @@
   <link rel="stylesheet" href="https://unpkg.com/@glidejs/glide@3.4.1/dist/css/glide.theme.min.css">
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css'
     integrity='sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l' crossorigin='anonymous'>
-    
+
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
 <body>
- 
+
   <nav class='navbar navbar-expand-lg navbar-dark bg-ligth'>
-    <a class='navbar-brand' href='/'><img src="./../images/logo_small.png" class="logo"alt="logo cadena de favores"></a>
-    
+    <a class='navbar-brand' href='/'><img src="../images/logo_small.png" class="logo" alt="logo cadena de favores"></a>
+
     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
       <ul class='navbar-nav ml-auto'>
         <li class='nav-item'>
-          <a class='nav-link'style="color:#195f2a" href='/'>Inicio</a>
+          <a class='nav-link' style="color:#195f2a" href='/'>Inicio</a>
         </li>
 
         {{#if user}}
         <li class='nav-item '>
-          <a class='nav-link' style="color:#195f2a"href='/inicio/cerrar-sesion'>Cerrar sesión</a>
+          <a class='nav-link' style="color:#195f2a" href='/inicio/cerrar-sesion'>Cerrar sesión</a>
         </li>
         <li class='nav-item'>
-          <a class='nav-link'style="color:#195f2a" href='/inicio/perfil'>Mi perfil</a>
+          <a class='nav-link' style="color:#195f2a" href='/inicio/perfil'>Mi perfil</a>
         </li>
         <li class='nav-item'>
-          <a class='nav-link' style="color:#195f2a"href='/favores'>Favores</a>
+          <a class='nav-link' style="color:#195f2a" href='/favores'>Favores</a>
         </li>
         {{else}}
         <li class='nav-item'>
-          <a class='nav-link' style="color:#195f2a"href='/inicio/iniciar-sesion'>Iniciar sesión</a>
+          <a class='nav-link' style="color:#195f2a" href='/inicio/iniciar-sesion'>Iniciar sesión</a>
         </li>
         <li class='nav-item'>
-          <a class='nav-link' style="color:#195f2a"href='/inicio/registro'>Regístrate aquí</a>
+          <a class='nav-link' style="color:#195f2a" href='/inicio/registro'>Regístrate aquí</a>
         </li>
-   
+
         {{/if}}
       </ul>
     </div>
   </nav>
- 
+
   {{{body}}}
   <script src="/javascripts/script.js"></script>
 </body>
+
 </html>

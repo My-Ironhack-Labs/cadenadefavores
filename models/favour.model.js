@@ -28,6 +28,10 @@ const favourSchema = new Schema({
         default: 'active',
         enum: ['active', 'required', 'done'],
     },
+    started: {
+        type: Boolean,
+        default: false,
+    },
     give:
     {
         type: mongoose.Schema.Types.ObjectId,
