@@ -1,0 +1,29 @@
+{{#if isAdmin}}
+
+<h1>FAVORES</h1>
+  {{#each favours}}
+       
+          <p>{{title}}</p>
+          <p>{{description}}</p>
+          <p id="address">{{address}}</p>
+          <p>{{status}}</p>
+          <p class="d-none">{{_id}}</p>
+          <form method="POST" action="/usuario/admin-perfil/eliminar/{{_id}}">
+            <button type="submit" class="btn btn-danger">Borrar favor</button>
+          </form>
+          <hr>
+        {{/each}}
+{{/if}}
+<h1>USUARIOS</h1>
+{{#each user}}
+        
+        <p>{{username}}</p>
+        <p>{{role}}</p>
+          <p class="d-none">{{_id}}</p>
+          <form method="POST" action="/usuario/admin-perfil/eliminar/{{_id}}">
+            <button type="submit" class="btn btn-danger">Borrar usuario</button>
+          </form>
+          <hr>
+        
+        {{/each}}
+      

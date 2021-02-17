@@ -1,16 +1,24 @@
-<div>Private page</div>
+{{!-- <div>Private page</div> --}}
 {{#if user}}
 <div>
   <figure><img class="avatar-profile-view" src="{{user.avatar}}" alt="avatar"></figure>
 
-    <hr>
+  <a href="/">Index</a>
+  <a href="/favores">Lista de favores</a>
+  <a href="/usuario/editar/{{user._id}}">Editar usuario</a>
+  <form method="POST" action="/usuario/dar-de-baja/{{user._id}}">
+    <button type="submit" class="btn btn-dark">Darse de baja</button>
+  </form>
+    {{!-- <hr> --}}
   <div class="glide">
   <div class="glide__track" data-glide-el="track">
     <ul class="glide__slides">      
       {{#each listFavs}}
       <li class="glide__slide">
+        <figure><img class="logo-small-profile-view" src="../../images/logo_small.png" alt="logo small"></figure>
         <h1>{{title}}</h1>
-        <h3>{{description}}</h3>        
+        <h4>{{description}}</h4>
+        <p>{{address}}</p>
         </li>
       {{/each}}      
     </ul>
@@ -18,26 +26,19 @@
 </div>
 </div>
 <hr>
-  <h1>Who's the best developer?</h1>
-  <h1>You are, <span style="color: red;">{{ user.username}}</span>. You are! </h1>
-  <img src="http://media.giphy.com/media/UsK5GqD3e0huU/giphy.gif" alt="You rock.">
-  <a href="/">Index</a>
-  <a href="/favores">Lista de favores</a>
-  <a href="/usuario/editar/{{user._id}}">Editar usuario</a>
-  <form method="POST" action="/usuario/dar-de-baja/{{user._id}}">
-    <button type="submit" class="btn btn-dark">Darse de baja</button>
-  </form>
 
 {{/if}}
+
+
 
 <script src="https://unpkg.com/@glidejs/glide@3.4.1/dist/glide.min.js"></script>
 
 <script>
   new Glide('.glide', {
     type: 'carousel',
-    perView: 3,
+    perView: 6,
     gap: 90,
-    {{!-- autoplay: 4000, --}}
+    autoplay: 3000,
     {{!-- animationTimingFunc: 'linear', --}}
     animationDuration: 800,
     breakpoints: {
