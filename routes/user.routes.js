@@ -6,14 +6,25 @@ const Favour = require('../models/favour.model')
 
 router.get('/perfil', (req, res) => {
     let userId = req.user._id
+    let favoursR
     console.log(req.user)
-    Favour
-        .countGivers(userId)
-        .then(favoursbyUser => {
-            console.log(favoursbyUser)
-            res.render('./auth/profile', { user: req.user, numfavs: favoursbyUser })
+    Favour        
+        .findReceivers(userId)
+        .then(favoursReceived => {
+            favoursR = favoursReceived
+            return Favour.countGivers(userId)
+        })        
+        .then(favoursDone => {
+            console.log('favores recibidos', favoursR, favoursDone)
+            res.render('./auth/profile', { user: req.user, listFavs: favoursR, favoursDone: favoursDone })
         })
         .catch(error => console.log(error))
+        // .countGivers(userId)
+        // .then(favoursbyUser => {
+        //     console.log('favores recibidos', favoursbyUser)
+        //     res.render('./auth/profile', { user: req.user, numfavs: favoursbyUser })
+        // })
+        // .catch(error => console.log(error))
 })
 
 router.get('/editar/:_id', (req, res) => {
