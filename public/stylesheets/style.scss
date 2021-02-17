@@ -1,12 +1,77 @@
 body{
-    color:#298b4f;
-  
+    font-family: 'Poppins', sans-serif;
+    color:#195f2a;
+
 }
 #map{
     height: 600px;
     width: 100%;
 }
-.img-index{
-    position: absolute;
+.nav-link{
+    font-family: 'Poppins', sans-serif;
+    margin-right: 20px;
+    color:#195f2a;
+}
+.logo{
+    width:40%;
+justify-content: end;}
+.border-left-title{
+    font-size: 3em;
+padding: 50px;
+}.navbar {
+    border-bottom: 1px solid rgb(230,230,230);
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
     width: 100%;
+    padding: 20px 0;
+    z-index: 9999;
+    transition: all .3s;
+}
+
+
+.contenedor {
+	
+	display: flex;
+	width: 300px;
+	height: 40px;
+	color: rgb(57, 126, 55);
+	font-size: 40px;
+	line-height: 40px;
+	
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	overflow: hidden;
+	
+}
+
+.index {
+	list-style: none;
+	padding-left: 40px;
+	animation: cambiar 7s infinite;
+}
+
+.index, p {
+	margin: 0;
+}
+
+@keyframes cambiar {
+	
+	0%{ margin-top: 0;}
+	20%{ margin-top: 0;}
+	
+	25% {margin-top: -40px;}
+	50% {margin-top: -40px;}
+	
+	55% {margin-top: -80px;}
+	80% {margin-top: -80px;}
+	
+	85% {margin-top: -40px;}
+	95% {margin-top: -40px;}
+	
+	100% {margin-top: 0;}
 }
