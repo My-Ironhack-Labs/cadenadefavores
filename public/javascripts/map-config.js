@@ -9,17 +9,35 @@ function initMap() {
 }
 
 function geocodeAddress(geocoder, myMap) {
-  let addressArray = document.querySelectorAll("#address");
+  let favoursArray = document.querySelectorAll(".favourList");
+  console.log(favoursArray)
 
-  addressArray.forEach(city => {
-    geocoder.geocode({ address: city.innerHTML }, (results, status) => {
-      console.log(address)
+  favoursArray.forEach(favour => {
+    let par = favour.querySelectorAll('p')
+    geocoder.geocode({ address: par[2].innerHTML }, (results, status) => {
+      console.log(par)
       if (status === "OK") {
         myMap.setCenter(results[0].geometry.location);
-        new google.maps.Marker({
+        const marker = new google.maps.Marker({
           map: myMap,
-          title: "TEST",
+          title: par[0].innerHTML,
           position: results[0].geometry.location,
+        });
+        const contentString =
+          `<div>` +
+          `<h1>${par[0].innerHTML}</h1>` +
+          `<div>` +
+          `<p> ${par[1].innerHTML} </p>` +
+          `<p> ${par[2].innerHTML} </p>` +
+          `<p> ${par[3].innerHTML} </p>` +
+          `<a href="/favores/detalles/${par[4].innerHTML} ">Link</a> ` +
+          `</div>` +
+          `</div>`;
+        const infowindow = new google.maps.InfoWindow({
+          content: contentString,
+        });
+        marker.addListener("click", () => {
+          infowindow.open(myMap, marker);
         });
       } else {
         alert("Geocode was not successful for the following reason: " + status);

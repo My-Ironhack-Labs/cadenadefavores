@@ -8,8 +8,14 @@ const Favour = require('../models/favour.model')
 router.get('/favores', (req, res) => {
   Favour
     .find()
-    .then(response =>res.json(response))
+    .then(response => res.json(response))
     .catch(err => console.log(err))
 })
 
+router.get('/favores/detalles/:_id', (req, res) => {
+  Favour
+    .find()
+    .then(response => res.json(response))
+    .catch(err => console.log(err))
+})
 module.exports = router

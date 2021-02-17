@@ -2,19 +2,21 @@
   <div class="row justify-content-center">
     <h2> Favores </h2>
     <hr>
-    <a class="btn btn-dark" href="/favores/nuevo">Nuevo favor</a>
+    <a class="btn btn-success" href="/favores/nuevo">Nuevo favor</a>
     <hr>
     <div class="col-md-12">
       <ul>
         {{#each favours}}
         <li class="favourList">
-          {{title}}
-          {{description}}
+          <p>{{title}}</p>
+          <p>{{description}}</p>
           <p id="address">{{address}}</p>
-          <a class="btn btn-dark" href="/favores/detalles/{{_id}}">Detalles</a>
-          <a class="btn btn-dark" href="/favores/editar/{{_id}}">Editar</a>
+          <p>{{status}}</p>
+          <p class="d-none">{{_id}}</p>
+          <a class="btn btn-success" href="/favores/detalles/{{_id}}">Detalles</a>
+          <a class="btn btn-success" href="/favores/editar/{{_id}}">Editar</a>
           <form method="POST" action="favores/eliminar/{{_id}}">
-            <button type="submit" class="btn btn-dark">Borrar</button>
+            <button type="submit" class="btn btn-success">Borrar</button>
           </form>
           <hr>
         </li>
@@ -30,6 +32,6 @@
     <script src="/javascripts/map-style.js"></script>
     <script src="/javascripts/map-config.js"></script>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=CLAVE_API&callback=initMap"></script>
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8kEYNzMvnEtkP1oDYxYI97I2U9GuGhyg&callback=initMap"></script>
   </div>
 </div>
