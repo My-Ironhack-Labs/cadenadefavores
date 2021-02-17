@@ -77,5 +77,11 @@ body {
 
 .hero:hover {
   filter: opacity(0.7); }
+.avatar-profile-view {
+  margin-top: 10px;
+  width: 3%; }
+
+.logo-small-profile-view {
+  width: 80%; }
 
 /*# sourceMappingURL=style.css.map */
