@@ -7,9 +7,6 @@ const passport = require("passport")
 
 
 
-router.get('/inicio/perfil', (req, res) => {
-    res.render('auth/private', { user: req.user })
-})
 router.get('/registro', (req, res) => res.render('./auth/signup'))
 router.post("/registro", (req, res, next) => {
 
