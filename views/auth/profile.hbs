@@ -1,7 +1,6 @@
 {{!-- <div>Private page</div> --}}
 {{#if user}}
-<div>
-  <figure><img class="avatar-profile-view" src="{{user.avatar}}" alt="avatar"></figure>
+<div class="container">
 
   <a href="/">Index</a>
   <a href="/favores">Lista de favores</a>
@@ -9,23 +8,51 @@
   <form method="POST" action="/usuario/dar-de-baja/{{user._id}}">
     <button type="submit" class="btn btn-dark">Darse de baja</button>
   </form>
-    {{!-- <hr> --}}
-  <div class="glide">
-  <div class="glide__track" data-glide-el="track">
-    <ul class="glide__slides">      
-      {{#each listFavs}}
-      <li class="glide__slide">
-        <figure><img class="logo-small-profile-view" src="../../images/logo_small.png" alt="logo small"></figure>
-        <h1>{{title}}</h1>
-        <h4>{{description}}</h4>
-        <p>{{address}}</p>
-        </li>
-      {{/each}}      
-    </ul>
+
+  <div class="title-carousel">
+    <figure><img class="avatar-profile-view" src="{{user.avatar}}" alt="avatar"></figure>
+    <h2>Favores recibidos</h2>
   </div>
+
+  <div class="glide">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides">
+        {{#each listFavs}}
+        {{#unless finished}}
+        <li class="glide__slide">
+          <figure><img class="logo-small-profile-carousel" src="../../images/logo_small.png" alt="logo small"></figure>
+          {{>favourElmList}}
+        </li>
+        {{else}}
+        <p>no tienes favores en proceso</p>
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <hr>
+
+  <div class="title-carousel">
+    <figure><img class="avatar-profile-view" src="{{user.avatar}}" alt="avatar"></figure>
+    <h2>Favores realizados</h2>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <ul>
+          {{#each favoursDone}}
+          <li class="given-favour-user-elm">
+            <figure><img class="logo-small-profile-list" src="../../images/logo_small.png" alt="logo small"></figure>
+            {{>favourElmList}}
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+
 </div>
-</div>
-<hr>
 
 {{/if}}
 
@@ -42,15 +69,21 @@
     {{!-- animationTimingFunc: 'linear', --}}
     animationDuration: 800,
     breakpoints: {
-      500: {
-        perView: 3
-      },
-      800: {
-        perView: 4
-      },
-      1200: {
-        perView: 5
-      }
+    200: {
+      perView: 1
+    },
+    300: {
+      perView: 2
+    },
+    500: {
+      perView: 3
+    },
+    800: {
+      perView: 4
+    },
+    1200: {
+      perView: 5
     }
+  }
   }).mount()  
 </script>

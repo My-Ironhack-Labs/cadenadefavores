@@ -6,34 +6,43 @@
     <div class="col-md-12">
       <ul>
         <li class="favourList">
-          <p>{{title}}</p>
-          <p>{{description}}</p>
-          <p>{{address}}</p>
+          <p>{{favour.title}}</p>
+          <p>{{favour.description}}</p>
+          <p>{{favour.address}}</p>
 
-          <form method="POST" action="/favores/detalles/{{ _id }}">
+          <form method="POST" action="/favores/detalles/{{favour._id }}">
             <div class="form-group">
-              <label for="status">Status: {{status}}</label>
+              <label for="status">Status: {{favour.status}}</label>
               <input name="status" type="text" class="form-control d-none" id="status" value="required" readonly>
             </div>
             <div class="form-group">
-              <label for="started">started: {{started}}</label>
+              <label for="started">started: {{favour.started}}</label>
               <input name="started" type="text" class="form-control d-none" id="started" value="true" readonly>
+            </div>
+             <div class="form-group">
+              <label for="id">id: {{id}}</label>
+              <input name="id" type="text" class="form-control d-none" id="id" value="{{id}}" readonly>
             </div>
             <button id="hacerFav" type="submit" class="btn btn-success">Hacer favor</button>
           </form>
+            
 
-          {{#if started}}
-          <form method="POST" action="/favores/detalles/terminar/{{ _id }}">
+          {{#if favour.started}}
+          <form method="POST" action="/favores/detalles/terminar/{{favour._id }}">
             <div class="form-group">
-              <label for="status">Status: {{status}}</label>
+              <label for="status">Status: {{favour.status}}</label>
               <input name="status" type="text" class="form-control d-none" id="status" value="done" readonly>
+            </div>
+            <div class="form-group">
+              <label for="finished">Finished: {{favour.finished}}</label>
+              <input name="finished" type="text" class="form-control d-none" id="finished" value="true" readonly>
             </div>
             <button id="hacerFav" type="submit" class="btn btn-success">Finalizar favor</button>
           </form>
           {{/if}}
-          <a class="btn btn-success" href="/favores/editar/{{_id}}">Editar</a>
+          <a class="btn btn-success" href="/favores/editar/{{favour._id}}">Editar</a>
           <a href="/favores" class="btn btn-success">Favores</a>
-          <form method="POST" action="/favores/eliminar/{{_id}}">
+          <form method="POST" action="/favores/eliminar/{{favour._id}}">
             <button type="submit" class="btn btn-success">Borrar</button>
           </form>
           <hr>
