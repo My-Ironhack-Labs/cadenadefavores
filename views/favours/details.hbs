@@ -9,7 +9,7 @@
           <p>{{favour.title}}</p>
           <p>{{favour.description}}</p>
           <p>{{favour.address}}</p>
-
+          {{#unless favour.started}}
           <form method="POST" action="/favores/detalles/{{favour._id }}">
             <div class="form-group">
               <label for="status">Status: {{favour.status}}</label>
@@ -25,7 +25,7 @@
             </div>
             <button id="hacerFav" type="submit" class="btn btn-success">Hacer favor</button>
           </form>
-            
+          {{/unless}}
 
           {{#if favour.started}}
           <form method="POST" action="/favores/detalles/terminar/{{favour._id }}">
@@ -50,3 +50,6 @@
       </ul>
     </div>
   </div>
+
+  <script src="../../javascripts/favour-button-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
