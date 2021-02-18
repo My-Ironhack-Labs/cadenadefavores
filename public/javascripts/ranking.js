@@ -1,20 +1,24 @@
 
 window.onload = () => {
-    if (document.getElementById('ranking').innerHTML < 5) {
+    let ranking = document.getElementById('ranking').dataset.ranking
+    let rankingtext = document.getElementById('ranking')
+    console.log(ranking)
+    if (ranking < 5) {
         console.log('hola')
-        document.getElementById('ranking').innerHTML = 'Ranking: Usuario'
+        rankingtext.innerHTML = 'Ranking: Usuario'
+        console.log(rankingtext)
     }
-    if (document.getElementById('ranking').innerHTML > 4 && document.getElementById('ranking').innerHTML < 10) {
+    if (ranking > 4 && ranking < 10) {
         console.log('hola')
-        document.getElementById('ranking').innerHTML = 'Ranking: Bronce'
+        rankingtext.innerHTML = 'Ranking: Bronce'
     }
-    if (document.getElementById('ranking').innerHTML > 9 && document.getElementById('ranking').innerHTML < 15) {
+    if (ranking > 9 && ranking < 15) {
         console.log('hola')
-        document.getElementById('ranking').innerHTML = 'Ranking: Plata'
+        rankingtext = 'Ranking: Plata'
     }
-    if (document.getElementById('ranking').innerHTML > 14) {
+    if (ranking > 14) {
         console.log('hola')
-        document.getElementById('ranking').innerHTML = 'Ranking: Oro'
+        rankingtext = 'Ranking: Oro'
     }
 }
 
