@@ -83,9 +83,29 @@ padding: 50px;
 
 .avatar-profile-view {
     margin-top: 10px;
-    width: 3%;
+    width: 100%;
 }
 
-.logo-small-profile-view {
+.logo-small-profile-carousel {
     width: 80%
+}
+
+.title-carousel {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	margin-left: 10px;
+}
+
+.title-carousel figure{
+	width: 3%;
+	margin-right: 10px;
+}
+
+// .given-favour-user-elm {
+// 	list-style: none;
+// }
+
+.logo-small-profile-list {
+    width: 100px
 }

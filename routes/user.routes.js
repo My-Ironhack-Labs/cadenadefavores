@@ -4,6 +4,9 @@ const User = require('../models/user.model')
 const Favour = require('../models/favour.model')
 const { checkLoggedIn, checkRole } = require('./../middleware')
 const { isAdmin } = require('./../utils')
+const path = require('path')
+const hbs = require('hbs')
+hbs.registerPartials(path.join(__dirname, '../views/partials'))
 
 
 router.get('/admin-perfil', checkLoggedIn, checkRole('admin'),(req, res) => {
@@ -18,8 +21,9 @@ router.get('/admin-perfil', checkLoggedIn, checkRole('admin'),(req, res) => {
         return User.find()
     })
     .then(users=>{
-        res.render('auth/admin-profile', { user: req.user, isAdmin:isAdmin(req.user),favours:totalFavours, user:users })
+        res.render('auth/admin-profile', { user: req.user, isAdmin:isAdmin(req.user),favours:totalFavours, users:users })
     })
+    .catch(err => console.log(err))
   
 })
 router.post('/admin-perfil/eliminar/:_id', (req, res) => {
@@ -30,20 +34,20 @@ router.post('/admin-perfil/eliminar/:_id', (req, res) => {
         .catch(err => console.log(err))
 })
 
-router.get('/admin-perfil', checkLoggedIn, checkRole('admin'),(req, res) => {
-    let totalUsers
+// router.get('/admin-perfil', checkLoggedIn, checkRole('admin'),(req, res) => {
+//     let totalUsers
     
-     User
-     .find()
-     .then(users=>{
-         totalUsers=users
-         return User.find()
-     })
-     .then(users=>{
-         res.render('auth/admin-profile', { user: req.user, isAdmin:isAdmin(req.user), user:users })
-     })
-   
- })
+//      User
+//      .find()
+//      .then(users=>{
+//          totalUsers=users
+//          return User.find()
+//      })
+//      .then(users=>{
+//          res.render('auth/admin-profile', { user: req.user, isAdmin:isAdmin(req.user), user:users })
+//      })
+//      .catch(err => console.log(err))   
+//  })
  router.post('/admin-perfil/eliminar/:_id', (req, res) => {
      const _id = req.params._id
      User
@@ -53,26 +57,23 @@ router.get('/admin-perfil', checkLoggedIn, checkRole('admin'),(req, res) => {
  })
 
 router.get('/perfil', (req, res) => {
-    let userId = req.user._id
-    let favoursR
+    let userId = req.user._id, favoursR, numFavoursD
     console.log(req.user)
     Favour        
         .findReceivers(userId)
         .then(favoursReceived => {
             favoursR = favoursReceived
             return Favour.countGivers(userId)
-        })        
+        })
+        .then(favoursDoneN => {
+            numFavoursD = favoursDoneN
+            return Favour.findGivers(userId)
+        })
         .then(favoursDone => {
-            console.log('favores recibidos', favoursR, favoursDone)
-            res.render('./auth/profile', { user: req.user, listFavs: favoursR, favoursDone: favoursDone })
+            console.log('favours doneeeeeeeeeeeeeeeeeeeeeee', favoursDone)
+            res.render('./auth/profile', { user: req.user, listFavs: favoursR, numFavoursD: numFavoursD, favoursDone: favoursDone})
         })
         .catch(error => console.log(error))
-        // .countGivers(userId)
-        // .then(favoursbyUser => {
-        //     console.log('favores recibidos', favoursbyUser)
-        //     res.render('./auth/profile', { user: req.user, numfavs: favoursbyUser })
-        // })
-        // .catch(error => console.log(error))
 })
 
 router.get('/editar/:_id', (req, res) => {

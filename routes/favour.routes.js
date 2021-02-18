@@ -34,28 +34,30 @@ router.post('/nuevo', (req, res) => {
 
 router.get('/detalles/:_id', (req, res) => {
     const _id = req.params._id
+    const user_id = req.user._id
+    console.log('--------------------------------------------------', req.user)
     Favour
         .findById(_id)
-        .then(favour => res.render('favours/details', favour))
+        .then(favour => res.render('favours/details', {favour, id: user_id }))
         .catch(err => console.log(err))
 })
 
 router.post('/detalles/:_id', (req, res) => {
     const _id = req.params._id
-    const { status, started } = req.body
+    const { status, started, id } = req.body
 
     Favour
-        .findByIdAndUpdate(_id, { status, started })
+        .findByIdAndUpdate(_id, { status, started, id })
         .then(() => res.redirect(`/favores/detalles/${_id}`))
         .catch(err => console.log(err))
 })
 
 router.post('/detalles/terminar/:_id', (req, res) => {
     const _id = req.params._id
-    const { status } = req.body
+    const { status, finished } = req.body
 
     Favour
-        .findByIdAndUpdate(_id, { status })
+        .findByIdAndUpdate(_id, { status, finished })
         .then(() => res.redirect(`/favores/detalles/${_id}`))
         .catch(err => console.log(err))
 

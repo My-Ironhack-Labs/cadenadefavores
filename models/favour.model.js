@@ -32,6 +32,10 @@ const favourSchema = new Schema({
         type: Boolean,
         default: false,
     },
+    finished: {
+        type: Boolean,
+        default: false,
+    },
     give:
     {
         type: mongoose.Schema.Types.ObjectId,
@@ -48,13 +52,15 @@ const favourSchema = new Schema({
 });
 
 favourSchema.statics.countGivers = function (id) {
-    console.log('hola', id)
     return this.count({ give: id })
 }
 
 favourSchema.statics.findReceivers = function (id) {
-    console.log('hola', id)
     return this.find({ receive: id })
+}
+
+favourSchema.statics.findGivers = function (id) {
+    return this.find({ give: id })
 }
 
 const Favour = mongoose.model("Favour", favourSchema);
