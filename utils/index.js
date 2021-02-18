@@ -12,3 +12,4 @@ module.exports = {
             favour.status === 'hecho'
         }
     }
+}
