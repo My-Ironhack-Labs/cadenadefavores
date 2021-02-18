@@ -1,15 +1,13 @@
 <div class="container">
   <div class="row justify-content-center">
-    <h2> Detalles Favores</h2>
-   
-    <hr>
     <div class="col-md-12">
+      <h2> Detalles Favores</h2>
+    <hr>
       <ul>
         <li class="favourList">
           <p>{{favour.title}}</p>
           <p>{{favour.description}}</p>
           <p>{{favour.address}}</p>
-
           <form method="POST" action="/favores/detalles/{{favour._id }}">
             <div class="form-group">
               <label for="status">Status: {{favour.status}}</label>
@@ -23,9 +21,8 @@
               <label for="id">id: {{id}}</label>
               <input name="give" type="text" class="form-control d-none" id="id" value="{{id}}" readonly>
             </div>
-            <button id="hacerFav" type="submit" class="btn btn-success">Hacer favor</button>
-          </form>
-            
+            <button id="hacerFav" type="submit" class="btn btn-light">Hacer favor</button>
+          </form>   
 
           {{#if favour.started}}
           <form method="POST" action="/favores/detalles/terminar/{{favour._id }}">
@@ -37,13 +34,13 @@
               <label for="finished">Finished: {{favour.finished}}</label>
               <input name="finished" type="text" class="form-control d-none" id="finished" value="true" readonly>
             </div>
-            <button id="hacerFav" type="submit" class="btn btn-success">Finalizar favor</button>
+            <button id="hacerFav" type="submit" class="btn btn-light">Finalizar favor</button>
           </form>
           {{/if}}
-          <a class="btn btn-success" href="/favores/editar/{{favour._id}}">Editar</a>
-          <a href="/favores" class="btn btn-success">Favores</a>
+          <a class="btn btn-light" href="/favores/editar/{{favour._id}}">Editar</a>
+          <a href="/favores" class="btn btn-light">Favores</a>
           <form method="POST" action="/favores/eliminar/{{favour._id}}">
-            <button type="submit" class="btn btn-success">Borrar</button>
+            <button type="submit" class="btn btn-light">Borrar</button>
           </form>
           <hr>
         </li>

@@ -1,23 +1,23 @@
 <div class="container">
   <div class="row justify-content-center">
-    <h2> Favores </h2>
+    <div class="col-md-6">
+       <a class="btn btn-light" id="botones" href="/favores/nuevo">Nuevo favor</a>
+    <a class="btn btn-light" id="botones" href="/usuario/perfil">Volver al Perfil</a>
     <hr>
-    <a class="btn btn-success" href="/favores/nuevo">Nuevo favor</a>
-    <a class="btn btn-success" href="/usuario/perfil">Volver al Perfil</a>
+      <h2 style="margin-left: 40px; font-weight:bold; font-size:2.5em"> Favores </h2>
     <hr>
-    <div class="col-md-12">
-      <ul>
+      <ul class="lista-favores">
         {{#each favours}}
         <li class="favourList">
-          <p>{{title}}</p>
+          <p style="text-transform: uppercase;">{{title}}</p>
           <p>{{description}}</p>
           <p id="address">{{address}}</p>
           <p>{{status}}</p>
           <p class="d-none">{{_id}}</p>
-          <a class="btn btn-success" href="/favores/detalles/{{_id}}">Detalles</a>
-          <a class="btn btn-success" href="/favores/editar/{{_id}}">Editar</a>
+          <a class="btn btn-light" style="margin: 10px 10px;" href="/favores/detalles/{{_id}}">Detalles</a>
+          <a class="btn btn-light" style="margin: 10px 10px;"href="/favores/editar/{{_id}}">Editar</a>
           <form method="POST" action="favores/eliminar/{{_id}}">
-            <button type="submit" class="btn btn-success">Borrar</button>
+            <button type="submit" class="btn btn-light"style="margin: 10px 10px;">Borrar</button>
           </form>
           <hr>
         </li>
