@@ -74,6 +74,31 @@ small {
 .index, p {
   margin: 0; }
 
+#profile {
+  margin-top: 50px; }
+
+#ranking {
+  font-size: 2em; }
+
+.title-carousel {
+  border: 1px solid ivory; }
+
+.glide__track {
+  border: 1px solid ivory; }
+
+#botones {
+  margin: 50px 20px; }
+
+.lista-favores {
+  justify-content: center;
+  list-style: none; }
+
+.favourList {
+  font-size: 1.5em; }
+
+#address {
+  font-style: oblique; }
+
 @keyframes cambiar {
   0% {
     margin-top: 0; }
@@ -105,7 +130,6 @@ small {
   width: 80%; }
 
 .title-carousel {
-  display: flex;
   justify-content: left;
   align-items: center;
   margin-left: 10px; }
