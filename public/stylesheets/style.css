@@ -1,6 +1,29 @@
 body {
-  font-family: 'Poppins', sans-serif;
-  color: #195f2a; }
+  font-family: 'Open Sans', sans-serif;
+  color: #195f2a;
+  background-image: url("./../images/fondo.jpg");
+  background-size: inherit;
+  color: ivory; }
+
+a {
+  text-decoration: none;
+  color: ivory; }
+
+a:hover {
+  color: #cbd3ca; }
+
+h1 {
+  margin-top: 60px;
+  letter-spacing: .2em; }
+
+small {
+  font-style: oblique;
+  color: ivory; }
+
+.btn:hover {
+  color: #195f2a;
+  font-weight: bold;
+  font-size: 1.3em; }
 
 #map {
   height: 600px;
@@ -10,10 +33,6 @@ body {
   font-family: 'Poppins', sans-serif;
   margin-right: 20px;
   color: #195f2a; }
-
-.logo {
-  width: 40%;
-  justify-content: end; }
 
 .border-left-title {
   font-size: 3em;
@@ -25,17 +44,17 @@ body {
   justify-content: space-between;
   text-transform: uppercase;
   width: 100%;
-  padding: 20px 0;
+  padding: 5px 0;
   z-index: 9999;
   transition: all .3s; }
 
 .contenedor {
   display: flex;
-  width: 300px;
-  height: 40px;
-  color: #397e37;
-  font-size: 40px;
-  line-height: 40px;
+  width: 700px;
+  height: 100px;
+  color: #fff;
+  font-size: 80px;
+  line-height: 100px;
   position: absolute;
   top: 0;
   right: 0;
@@ -50,7 +69,7 @@ body {
   animation: cambiar 7s infinite; }
 
 .index li {
-  padding: 0 20px; }
+  padding: 0 60px; }
 
 .index, p {
   margin: 0; }
@@ -61,17 +80,17 @@ body {
   20% {
     margin-top: 0; }
   25% {
-    margin-top: -40px; }
+    margin-top: -100px; }
   50% {
-    margin-top: -40px; }
+    margin-top: -100px; }
   55% {
-    margin-top: -80px; }
+    margin-top: -200px; }
   80% {
-    margin-top: -80px; }
+    margin-top: -200px; }
   85% {
-    margin-top: -40px; }
+    margin-top: -100px; }
   95% {
-    margin-top: -40px; }
+    margin-top: -100px; }
   100% {
     margin-top: 0; } }
 

@@ -3,34 +3,34 @@
     <div class="col-md-6">
       <h1>Editar favor</h1>
       <hr>
-      <form method="POST" action="/favores/editar/{{_id}}">
+      <form method="POST" action="/favores/editar/{{favour._id}}">
         <div class="form-group">
-          <label for="title">Título</label>
-          <input name="title" type="text" class="form-control" id="title" value="{{title}}">
+          <label for="title">Título {{favour._id}}</label>
+          <input name="title" type="text" class="form-control" id="title" value="{{favour.title}}">
         </div>
         <div class="form-group">
           <label for="description"> Descripción</label>
-          <input name="description" type="text" class="form-control" id="description" value="{{description}}">
+          <input name="description" type="text" class="form-control" id="description" value="{{favour.description}}">
         </div>
         <div class="form-group">
           <label for="address"> Direccion</label>
-          <input name="address" type="text" class="form-control" id="address" value="{{address}}">
+          <input name="address" type="text" class="form-control" id="address" value="{{favour.address}}">
         </div>
         <div class="col">
-          <div class="form-group">
+          <div class="form-group d-none">
             <label for="latitude">Latitude</label>
             <input name="latitude" type="text" class="form-control" id="latitude">
           </div>
         </div>
         <div class="col">
-          <div class="form-group">
+          <div class="form-group d-none">
             <label for="longitude">Longitude</label>
             <input name="longitude" type="text" class="form-control" id="longitude">
           </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-dark">Guardar cambios</button>
-    <a href="/favores" class="btn btn-outline-dark">Favores</a>
+    <button type="submit" class="btn btn-light">Guardar cambios</button>
+    <a href="/favores" class="btn btn-outline-light">Favores</a>
     </form>
   </div>
 </div>
