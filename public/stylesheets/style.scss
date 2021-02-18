@@ -1,7 +1,30 @@
 body{
-    font-family: 'Poppins', sans-serif;
-    color:#195f2a;
+	font-family: 'Open Sans', sans-serif;
+	color:#195f2a;
+	background-image: url('./../images/fondo.jpg');
+	background-size: inherit;
+	color: ivory;
 
+}
+a{
+	text-decoration: none;
+	color:ivory;
+}
+a:hover{
+	color:rgb(203, 211, 202);
+}
+h1{
+	margin-top: 60px;
+	letter-spacing: .2em;
+}
+small{
+	font-style: oblique;
+	color: ivory;
+}
+.btn:hover{
+	color: #195f2a;
+	font-weight: bold;
+	font-size: 1.3em;
 }
 #map{
     height: 600px;
@@ -12,12 +35,10 @@ body{
     margin-right: 20px;
     color:#195f2a;
 }
-.logo{
-    width:40%;
-justify-content: end;}
+
 .border-left-title{
     font-size: 3em;
-padding: 50px;
+	padding: 50px;
 }
 .navbar {
     border-bottom: 1px solid rgb(230,230,230);
@@ -25,18 +46,18 @@ padding: 50px;
     justify-content: space-between;
     text-transform: uppercase;
     width: 100%;
-    padding: 20px 0;
+    padding: 5px 0;
     z-index: 9999;
     transition: all .3s;
 }
 
 .contenedor {
 	display: flex;
-	width: 300px;
-	height: 40px;
-	color: rgb(57, 126, 55);
-	font-size: 40px;
-	line-height: 40px;
+	width: 700px;
+	height: 100px;
+	color: #fff;
+	font-size: 80px;
+	line-height: 100px;
 	
 	position: absolute;
 	top: 0;
@@ -45,7 +66,6 @@ padding: 50px;
 	left: 0;
 	margin: auto;
 	overflow: hidden;
-	
 }
 
 .index {
@@ -54,7 +74,8 @@ padding: 50px;
 	animation: cambiar 7s infinite;
 }
 .index li{
-    padding: 0 20px;
+    padding: 0 60px;
+	
 }
 
 .index, p {
@@ -66,14 +87,14 @@ padding: 50px;
 	0%{ margin-top: 0;}
 	20%{ margin-top: 0;}
 	
-	25% {margin-top: -40px;}
-	50% {margin-top: -40px;}
+	25% {margin-top: -100px;}
+	50% {margin-top: -100px;}
 	
-	55% {margin-top: -80px;}
-	80% {margin-top: -80px;}
+	55% {margin-top: -200px;}
+	80% {margin-top: -200px;}
 	
-	85% {margin-top: -40px;}
-	95% {margin-top: -40px;}
+	85% {margin-top: -100px;}
+	95% {margin-top: -100px;}
 	
 	100% {margin-top: 0;}
 }

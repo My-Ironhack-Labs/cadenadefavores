@@ -34,20 +34,7 @@ router.post('/admin-perfil/eliminar/:_id', (req, res) => {
         .catch(err => console.log(err))
 })
 
-// router.get('/admin-perfil', checkLoggedIn, checkRole('admin'),(req, res) => {
-//     let totalUsers
-    
-//      User
-//      .find()
-//      .then(users=>{
-//          totalUsers=users
-//          return User.find()
-//      })
-//      .then(users=>{
-//          res.render('auth/admin-profile', { user: req.user, isAdmin:isAdmin(req.user), user:users })
-//      })
-//      .catch(err => console.log(err))   
-//  })
+
  router.post('/admin-perfil/eliminar/:_id', (req, res) => {
      const _id = req.params._id
      User

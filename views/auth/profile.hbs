@@ -1,4 +1,3 @@
-{{!-- <div>Private page</div> --}}
 {{#if user}}
 <div class="container">
 
@@ -6,7 +5,7 @@
   <a href="/favores">Lista de favores</a>
   <a href="/usuario/editar/{{user._id}}">Editar usuario</a>
   <form method="POST" action="/usuario/dar-de-baja/{{user._id}}">
-    <button type="submit" class="btn btn-dark">Darse de baja</button>
+    <button type="submit" class="btn btn-light">Darse de baja</button>
   </form>
   <div class="title-carousel">
     <figure><img class="avatar-profile-view" src="{{user.avatar}}" alt="avatar"></figure>
