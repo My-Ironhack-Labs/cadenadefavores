@@ -17,7 +17,7 @@ router.get('/nuevo', (req, res) => {
     const user = req.user
     User
         .findById(user_id)
-        .then(elm => res.render('favours/new', {elm, user}))
+        .then(elm => res.render('favours/new', { elm, user }))
         .catch(err => console.log(err))
 })
 
@@ -39,7 +39,7 @@ router.get('/detalles/:_id', (req, res) => {
     const user_id = req.user._id
     Favour
         .findById(_id)
-        .then(favour => res.render('favours/details', {favour, id: user_id, user }))
+        .then(favour => res.render('favours/details', { favour, id: user_id, user }))
         .catch(err => console.log(err))
 })
 
@@ -69,12 +69,13 @@ router.get('/editar/:_id', (req, res) => {
     const _id = req.params._id
     Favour
         .findById(_id)
-        .then(favour => res.render('favours/edit', {favour, user}))
+        .then(favour => res.render('favours/edit', { favour, user }))
         .catch(err => console.log(err))
 })
 
 router.post('/editar/:_id', (req, res) => {
     const _id = req.params._id
+    console.log(_id)
     const { title, description, address, latitude, longitude } = req.body
     const location = {
         type: 'Point',

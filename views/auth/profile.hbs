@@ -5,6 +5,7 @@
   <a href="/">Index</a>
   <a href="/favores">Lista de favores</a>
   <a href="/usuario/editar/{{user._id}}">Editar usuario</a>
+  <p id="ranking"> {{numFavoursD}}</p>
   <form method="POST" action="/usuario/dar-de-baja/{{user._id}}">
     <button type="submit" class="btn btn-dark">Darse de baja</button>
   </form>
@@ -12,7 +13,7 @@
     <figure><img class="avatar-profile-view" src="{{user.avatar}}" alt="avatar"></figure>
     <h2>Favores recibidos</h2>
   </div>
-  
+
   {{#if favoursDone}}
   <div class="glide">
     <div class="glide__track" data-glide-el="track">
@@ -58,7 +59,7 @@
 {{/if}}
 
 
-
+<script src="../../javascripts/ranking.js"></script>
 <script src="https://unpkg.com/@glidejs/glide@3.4.1/dist/glide.min.js"></script>
 
 <script>
