@@ -32,7 +32,7 @@ router.post("/registro", (req, res, next) => {
         })
         .catch(error => next(new Error(error)))
 })
-router.get("/iniciar-sesion", (req, res) => res.render("auth/login"))
+router.get("/iniciar-sesion", (req, res) => res.render("auth/login", { message: req.flash("error")}))
 router.post("/iniciar-sesion", passport.authenticate("local", {
     successRedirect: "/usuario/perfil",
     failureRedirect: "/inicio/iniciar-sesion",

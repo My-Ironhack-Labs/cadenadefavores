@@ -5,18 +5,19 @@ const User = require('../models/user.model')
 
 
 router.get('/', (req, res) => {
+    const user = req.user
     Favour
         .find()
-        .then(favours => res.render('./favours/list', { favours }))
+        .then(favours => res.render('./favours/list', { favours, user }))
         .catch(err => console.log(err))
 })
 
 router.get('/nuevo', (req, res) => {
     const user_id = req.user._id
-    console.log(req.user)
+    const user = req.user
     User
         .findById(user_id)
-        .then(user => res.render('favours/new', user))
+        .then(elm => res.render('favours/new', {elm, user}))
         .catch(err => console.log(err))
 })
 
@@ -33,21 +34,21 @@ router.post('/nuevo', (req, res) => {
 })
 
 router.get('/detalles/:_id', (req, res) => {
+    const user = req.user
     const _id = req.params._id
     const user_id = req.user._id
-    console.log('--------------------------------------------------', req.user)
     Favour
         .findById(_id)
-        .then(favour => res.render('favours/details', {favour, id: user_id }))
+        .then(favour => res.render('favours/details', {favour, id: user_id, user }))
         .catch(err => console.log(err))
 })
 
 router.post('/detalles/:_id', (req, res) => {
     const _id = req.params._id
-    const { status, started, id } = req.body
+    const { status, started, give } = req.body
 
     Favour
-        .findByIdAndUpdate(_id, { status, started, id })
+        .findByIdAndUpdate(_id, { status, started, give })
         .then(() => res.redirect(`/favores/detalles/${_id}`))
         .catch(err => console.log(err))
 })
@@ -64,10 +65,11 @@ router.post('/detalles/terminar/:_id', (req, res) => {
 })
 
 router.get('/editar/:_id', (req, res) => {
+    const user = req.user
     const _id = req.params._id
     Favour
         .findById(_id)
-        .then(favour => res.render('favours/edit', favour))
+        .then(favour => res.render('favours/edit', {favour, user}))
         .catch(err => console.log(err))
 })
 
