@@ -9,22 +9,22 @@ const hbs = require('hbs')
 hbs.registerPartials(path.join(__dirname, '../views/partials'))
 
 
-router.get('/admin-perfil', checkLoggedIn, checkRole('admin'),(req, res) => {
-   let totalFavours
-   
+router.get('/admin-perfil', checkLoggedIn, checkRole('admin'), (req, res) => {
+    let totalFavours
+
     Favour
-    .find()
-    .select('title description')
-    .then(favours=>{
-        console.log(favours)
-        totalFavours=favours
-        return User.find()
-    })
-    .then(users=>{
-        res.render('auth/admin-profile', { user: req.user, isAdmin:isAdmin(req.user),favours:totalFavours, users:users })
-    })
-    .catch(err => console.log(err))
-  
+        .find()
+        .select('title description')
+        .then(favours => {
+            console.log(favours)
+            totalFavours = favours
+            return User.find()
+        })
+        .then(users => {
+            res.render('auth/admin-profile', { user: req.user, isAdmin: isAdmin(req.user), favours: totalFavours, users: users })
+        })
+        .catch(err => console.log(err))
+
 })
 router.post('/admin-perfil/eliminar/:_id', (req, res) => {
     const _id = req.params._id
@@ -45,8 +45,7 @@ router.post('/admin-perfil/eliminar/:_id', (req, res) => {
 
 router.get('/perfil', (req, res) => {
     let userId = req.user._id, favoursR, numFavoursD
-    console.log(req.user)
-    Favour        
+    Favour
         .findReceivers(userId)
         .then(favoursReceived => {
             favoursR = favoursReceived
@@ -56,10 +55,7 @@ router.get('/perfil', (req, res) => {
             numFavoursD = favoursDoneN
             return Favour.findGivers(userId)
         })
-        .then(favoursDone => {
-            console.log('favours doneeeeeeeeeeeeeeeeeeeeeee', favoursDone)
-            res.render('./auth/profile', { user: req.user, listFavs: favoursR, numFavoursD: numFavoursD, favoursDone: favoursDone})
-        })
+        .then(favoursDone => res.render('./auth/profile', { user: req.user, listFavs: favoursR, numFavoursD: numFavoursD, favoursDone: favoursDone }))
         .catch(error => console.log(error))
 })
 
