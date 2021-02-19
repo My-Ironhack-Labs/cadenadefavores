@@ -33,7 +33,7 @@ router.post('/admin-perfil/eliminar/:_id', (req, res) => {
         .catch(err => console.log(err))
 })
 
- router.post('/admin-perfil/eliminar/:_id', (req, res) => {
+ router.post('/admin-perfil/eliminar-usuario/:_id', (req, res) => {
      const _id = req.params._id
      User
          .findByIdAndRemove(_id)
