@@ -12,7 +12,7 @@ a {
 a:hover {
   color: #cbd3ca; }
 
-h1 {
+.title-index {
   margin-top: 60px;
   letter-spacing: .2em; }
 
@@ -71,6 +71,10 @@ small {
 .index li {
   padding: 0 60px; }
 
+.title-glide {
+  font-size: 2em;
+  letter-spacing: 0; }
+
 .index, p {
   margin: 0; }
 
@@ -80,16 +84,10 @@ small {
 #ranking {
   font-size: 2em; }
 
-.title-carousel {
-  border: 1px solid ivory; }
-
-.glide__track {
-  border: 1px solid ivory; }
-
-#botones {
+#buttons {
   margin: 50px 20px; }
 
-.lista-favores {
+.list-favors {
   justify-content: center;
   list-style: none; }
 
@@ -98,6 +96,11 @@ small {
 
 #address {
   font-style: oblique; }
+
+.profile-favours {
+  font-size: 3em;
+  text-transform: uppercase;
+  margin: 40px 0; }
 
 @keyframes cambiar {
   0% {
@@ -138,7 +141,19 @@ small {
   width: 3%;
   margin-right: 10px; }
 
+.given-favour-user-elm {
+  list-style: none;
+  margin-bottom: 80px; }
+
 .logo-small-profile-list {
   width: 100px; }
+
+.glide__slide {
+  padding: 30px;
+  transition: transform .2s; }
+
+.glide__slide:hover {
+  transform: scale(1.2);
+  color: #a1df89; }
 
 /*# sourceMappingURL=style.css.map */

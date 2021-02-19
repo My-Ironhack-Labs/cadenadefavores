@@ -4,7 +4,6 @@ body{
 	background-image: url('./../images/fondo.jpg');
 	background-size: inherit;
 	color: ivory;
-
 }
 a{
 	text-decoration: none;
@@ -13,7 +12,7 @@ a{
 a:hover{
 	color:rgb(203, 211, 202);
 }
-h1{
+.title-index{
 	margin-top: 60px;
 	letter-spacing: .2em;
 }
@@ -35,7 +34,6 @@ small{
     margin-right: 20px;
     color:#195f2a;
 }
-
 .border-left-title{
     font-size: 3em;
 	padding: 50px;
@@ -50,7 +48,6 @@ small{
     z-index: 9999;
     transition: all .3s;
 }
-
 .contenedor {
 	display: flex;
 	width: 700px;
@@ -66,7 +63,6 @@ small{
 	margin: auto;
 	overflow: hidden;
 }
-
 .index {
 	list-style: none;
 	padding-left: 40px;
@@ -74,9 +70,11 @@ small{
 }
 .index li{
     padding: 0 60px;
-	
 }
-
+.title-glide{
+	font-size: 2em;
+	letter-spacing: 0;
+}
 .index, p {
 	margin: 0;   
 }
@@ -86,16 +84,10 @@ small{
 #ranking{
 	font-size: 2em;
 }
-.title-carousel{
-	border: 1px solid ivory ;
-}
-.glide__track{
-	border: 1px solid ivory ;
-}
-#botones{
+#buttons{
 	margin: 50px 20px;
 }
-.lista-favores{
+.list-favors{
 	justify-content: center;
 	list-style: none;
 }
@@ -104,6 +96,11 @@ small{
 }
 #address{
 	font-style: oblique;
+}
+.profile-favours{
+	font-size: 3em;
+	text-transform: uppercase;
+	margin:40px 0;
 }
 @keyframes cambiar {
 	
@@ -121,34 +118,36 @@ small{
 	
 	100% {margin-top: 0;}
 }
-
-
 .hero:hover {filter: opacity(.7);}
 
 .avatar-profile-view {
     margin-top: 10px;
     width: 100%;
 }
-
 .logo-small-profile-carousel {
     width: 80%
 }
-
 .title-carousel {
 	justify-content: left;
 	align-items: center;
 	margin-left: 10px;
 }
-
 .title-carousel figure{
 	width: 3%;
 	margin-right: 10px;
 }
-
-// .given-favour-user-elm {
-// 	list-style: none;
-// }
-
+.given-favour-user-elm {
+	list-style: none;
+	margin-bottom: 80px;
+}
 .logo-small-profile-list {
     width: 100px
+}
+.glide__slide{
+	padding:30px;
+	transition: transform .2s; 
+}
+.glide__slide:hover{
+	transform: scale(1.2);
+	color: rgb(161, 223, 137);
 }

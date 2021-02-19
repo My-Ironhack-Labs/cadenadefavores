@@ -47,7 +47,6 @@ router.post('/detalles/:_id', (req, res) => {
     const _id = req.params._id
     const { status, started, give } = req.body
 
-
     Favour
         .findByIdAndUpdate(_id, { status, started, give })
         .then(() => res.redirect(`/favores/detalles/${_id}`))
@@ -62,7 +61,6 @@ router.post('/detalles/terminar/:_id', (req, res) => {
         .findByIdAndUpdate(_id, { status, finished })
         .then(() => res.redirect(`/favores/detalles/${_id}`))
         .catch(err => console.log(err))
-
 })
 
 router.get('/editar/:_id', (req, res) => {

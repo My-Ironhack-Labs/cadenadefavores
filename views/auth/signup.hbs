@@ -1,11 +1,7 @@
 <div class="container">
-
     <div class="row justify-content-center">
-
         <div class="col-md-5">
-
-            <h1>Registro</h1>
-
+            <h1 class="title-index">Registro</h1>
             <form method="POST" action="/inicio/registro">
 
                 <div class="form-group">
@@ -17,21 +13,16 @@
                     <label>Contraseña</label>
                     <input type="password" class="form-control" name="password">
                 </div>
-
                 <button type="submit" class="btn btn-light btn-block" >Regístrate</button>
                 <br>
                 <small class="text-muted">¿Ya tienes cuenta con nosotros? <a style=""href="/inicio/iniciar-sesion">¡Inicia sesión aquí!</a></small><br>
 
-
                 {{#if errorMsg}}
-                <div class="error-message">
-                    {{errorMsg}}</div>
+                <div class="error-message"style="background: rgb(160, 179, 125);text-align: center;padding: 0 5px;border-radius:20%;margin-top:70px;width: 300px;height: 40px;	line-height: 40px;">
+                    {{errorMsg}}
+                </div>
                 {{/if}}
-
             </form>
         </div>
     </div>
-
-
-
 </div>

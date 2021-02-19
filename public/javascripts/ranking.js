@@ -3,17 +3,17 @@ window.onload = () => {
     let ranking = document.getElementById('ranking').dataset.ranking
     let rankingtext = document.getElementById('ranking')
     console.log(ranking)
-    if (ranking < 5) {
-        rankingtext.innerHTML = 'Ranking: Usuario'
+    if (ranking < 2) {
+        rankingtext.innerHTML = 'Nivel: Usuario <img src="https://img.icons8.com/fluent/48/000000/dove.png"/>'
     }
-    if (ranking > 4 && ranking < 10) {
-        rankingtext.innerHTML = 'Ranking: Bronce'
+    if (ranking > 1 && ranking < 3) {
+        rankingtext.innerHTML = 'Nivel: Bronce <img src="https://img.icons8.com/officel/40/000000/olympic-medal-bronze.png"/>'
     }
-    if (ranking > 9 && ranking < 15) {
-        rankingtext.innerHTML = 'Ranking: Plata'
+    if (ranking > 2 && ranking < 5) {
+        rankingtext.innerHTML = 'Nivel: Plata <img src="https://img.icons8.com/officel/40/000000/olympic-medal-silver.png"/>'
     }
-    if (ranking > 14) {
-        rankingtext.innerHTML = 'Ranking: Oro'
+    if (ranking > 4) {
+        rankingtext.innerHTML = 'Nivel: Oro <img src="https://img.icons8.com/officel/40/000000/gold-medal.png"/>'
     }
 }
 
