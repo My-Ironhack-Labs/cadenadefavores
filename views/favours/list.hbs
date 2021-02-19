@@ -3,11 +3,19 @@
     <div class="col-md-6">
       <a class="btn btn-light" id="buttons" href="/favores/nuevo">Nuevo favor</a>
       <a class="btn btn-light" id="buttons" href="/usuario/perfil">Volver al Perfil</a>
-    <hr>
+      <hr>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
       <h2 style="margin-left: 40px; font-weight:bold; font-size:2.5em"> Favores </h2>
-    <hr>
-      <ul class="list-favors">
-        {{#each favours}}
+      <hr>
+    </div>
+  </div>
+  <ul class="list-favors">
+    <div class="row justify-content-center">
+      {{#each favours}}
+      <div class="col-md-5">
         <li class="favourList">
           <p style="text-transform: uppercase;">{{title}}</p>
           <p>{{description}}</p>
@@ -15,24 +23,25 @@
           <p>{{status}}</p>
           <p class="d-none">{{_id}}</p>
           <a class="btn btn-light" style="margin: 10px 10px;" href="/favores/detalles/{{_id}}">Detalles</a>
-          <a class="btn btn-light" style="margin: 10px 10px;"href="/favores/editar/{{_id}}">Editar</a>
+          <a class="btn btn-light" style="margin: 10px 10px;" href="/favores/editar/{{_id}}">Editar</a>
           <form method="POST" action="favores/eliminar/{{_id}}">
-            <button type="submit" class="btn btn-light"style="margin: 10px 10px;">Borrar</button>
+            <button type="submit" class="btn btn-light" style="margin: 10px 10px;">Borrar</button>
           </form>
           <hr>
         </li>
-        {{/each}}
-      </ul>
+      </div>
+      {{/each}}
     </div>
-  </div>
-  <div class="container">
-    <hr>
-    <h1>Map</h1>
-    <figure id="map" class="placesMap"></figure>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/javascripts/map-style.js"></script>
-    <script src="/javascripts/map-config.js"></script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8kEYNzMvnEtkP1oDYxYI97I2U9GuGhyg&callback=initMap"></script>
-  </div>
+  </ul>
+</div>
+<div class="container">
+  <hr>
+  <h1 class="map">Map</h1>
+  <figure id="map" class="placesMap"></figure>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="/javascripts/map-style.js"></script>
+  <script src="/javascripts/map-config.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8kEYNzMvnEtkP1oDYxYI97I2U9GuGhyg&callback=initMap"></script>
+</div>
 </div>
