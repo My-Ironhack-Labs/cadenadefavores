@@ -1,15 +1,12 @@
 {{#if user}}
 <div class="container" id="profile">
-
-  <a href="/">Index</a>
-  <a href="/usuario/editar/{{user._id}}">Editar usuario</a>
+  <figure><img class="avatar-profile-view" style="width:10%;margin:40px auto;"src="{{user.avatar}}" alt="avatar"></figure>
+  <a href="/usuario/editar/{{user._id}}"style="margin-bottom: 20px;"class="btn btn-light">Editar usuario</a>
   <p id="ranking" data-ranking={{numFavoursD}}> </p>
-  
   <div class="title-carousel">
-    <figure><img class="avatar-profile-view" src="{{user.avatar}}" alt="avatar"></figure>
-    <h2>Favores recibidos</h2>
+   <h2 class="profile-favours"><img src="https://img.icons8.com/office/40/000000/receive-cash.png"/>  Favores recibidos</h2>
   </div>
-
+  
   {{#if favoursDone}}
   <div class="glide">
     <div class="glide__track" data-glide-el="track">
@@ -17,40 +14,38 @@
         {{#each listFavs}}
         {{#unless finished}}
         <li class="glide__slide">
-          <figure><img class="logo-small-profile-carousel" src="../../images/logo_small.png" alt="logo small"></figure>
+         
           {{>favourElmList}}
         </li>
         {{else}}
-        <p>no tienes favores en proceso</p>
+        <p>¿Necesitas más favores?</p>
         {{/unless}}
         {{/each}}
       </ul>
     </div>
   </div>
-  <hr>
   {{/if}}
 
   <div class="title-carousel">
-    <figure><img class="avatar-profile-view" src="{{user.avatar}}" alt="avatar"></figure>
-    <h2>Favores realizados</h2>
+  <h2 class="profile-favours"><img src="https://img.icons8.com/emoji/48/000000/check-box-with-check-emoji.png"/>  Favores realizados </h2>
   </div>
 
   <div class="container">
-    <div class="row">
-      <div class="col-md-2">
-        <ul>
-          {{#each favoursDone}}
-          <li class="given-favour-user-elm">
-            <figure><img class="logo-small-profile-list" src="../../images/logo_small.png" alt="logo small"></figure>
-            {{>favourElmList}}
-          </li>
-          {{/each}}
-        </ul>
+    <ul>
+      <div class="row justify-content-center">
+      {{#each favoursDone}}
+      <div class="col-md-4">
+        <li class="given-favour-user-elm">
+         {{>favourElmList}}
+        </li>
+       </div>
+        {{/each}}
       </div>
-    </div>
+    </ul>
+   
   </div>
 <form method="POST" action="/usuario/dar-de-baja/{{user._id}}">
-<button type="submit" class="btn btn-light">Darse de baja</button>
+<button type="submit" class="btn btn-light" style="margin: 70px 0;">Darse de baja</button>
 </form>
 
 </div>
@@ -64,7 +59,7 @@
 <script>
   new Glide('.glide', {
     type: 'carousel',
-    perView: 6,
+    perView: 4,
     gap: 90,
     autoplay: 3000,
     {{!-- animationTimingFunc: 'linear', --}}
@@ -74,16 +69,19 @@
       perView: 1
     },
     300: {
-      perView: 2
+      perView: 1
     },
     500: {
-      perView: 3
+      perView: 1
     },
     800: {
-      perView: 4
+      perView: 2
+    },
+    1000: {
+      perView: 3
     },
     1200: {
-      perView: 5
+      perView: 4
     }
   }
   }).mount()  

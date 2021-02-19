@@ -11,7 +11,6 @@ hbs.registerPartials(path.join(__dirname, '../views/partials'))
 
 router.get('/admin-perfil', checkLoggedIn, checkRole('admin'), (req, res) => {
     let totalFavours
-
     Favour
         .find()
         .select('title description')
@@ -33,7 +32,6 @@ router.post('/admin-perfil/eliminar/:_id', (req, res) => {
         .then(() => res.redirect('/usuario/admin-perfil'))
         .catch(err => console.log(err))
 })
-
 
  router.post('/admin-perfil/eliminar/:_id', (req, res) => {
      const _id = req.params._id
@@ -75,6 +73,7 @@ router.post('/editar/:_id', (req, res) => {
         .then(() => res.redirect('/usuario/perfil'))
         .catch(err => console.log(err))
 })
+
 router.post('/dar-de-baja/:_id', (req, res) => {
     const user_id = req.params._id
     const { username, avatar, description } = req.body
@@ -83,6 +82,5 @@ router.post('/dar-de-baja/:_id', (req, res) => {
         .then(() => res.redirect('/'))
         .catch(err => console.log(err))
 })
-
 
 module.exports = router
