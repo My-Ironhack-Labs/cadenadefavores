@@ -1,29 +1,47 @@
 {{#if isAdmin}}
 
-<h1>FAVORES</h1>
-  {{#each favours}}
-       
-          <p>{{title}}</p>
-          <p>{{description}}</p>
-          <p id="address">{{address}}</p>
-          <p>{{status}}</p>
-          <p class="d-none">{{_id}}</p>
-          <form method="POST" action="/usuario/admin-perfil/eliminar/{{_id}}">
-            <button type="submit" class="btn btn-danger">Borrar favor</button>
-          </form>
-          <hr>
-        {{/each}}
+<div class="container">
+  <h1>Favores</h1>
+  <div class="row justify-content-between">
+
+    {{#each favours}}
+    <div class="col-md-5">
+      <p>{{title}}</p>
+      <p>{{description}}</p>
+      <p id="address">{{address}}</p>
+      <p>{{status}}</p>
+      <p class="d-none">{{_id}}</p>
+      <form method="POST" action="/usuario/admin-perfil/eliminar/{{_id}}">
+        <button type="submit" class="btn btn-danger">Borrar favor</button>
+      </form>
+      <hr>
+    </div>
+    {{/each}}
+
+  </div>
+</div>
+
+<div class="container ">
+  <h1>Usuarios</h1>
+  <div class="row justify-content-between">
+    {{#each users}}
+    <div class="col-md-5">
+      <p>{{username}}</p>
+      <p>{{role}}</p>
+      <p class="d-none">{{_id}}</p>
+      <form method="POST" action="/usuario/admin-perfil/eliminar/{{_id}}">
+        <button type="submit" class="btn btn-danger">Borrar usuario</button>
+      </form>
+      <hr>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+
+
+
+
+
+
 {{/if}}
-<h1>USUARIOS</h1>
-{{#each users}}
-        
-        <p>{{username}}</p>
-        <p>{{role}}</p>
-          <p class="d-none">{{_id}}</p>
-          <form method="POST" action="/usuario/admin-perfil/eliminar/{{_id}}">
-            <button type="submit" class="btn btn-danger">Borrar usuario</button>
-          </form>
-          <hr>
-        
-        {{/each}}
-      

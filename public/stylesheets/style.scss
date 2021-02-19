@@ -30,6 +30,11 @@ small{
     height: 600px;
     width: 100%;
 }
+.map{
+	display: flex;
+	justify-content: center;    
+	margin-bottom: 20px;
+}
 .nav-link{
     font-family: 'Poppins', sans-serif;
     margin-right: 20px;
@@ -76,7 +81,10 @@ small{
     padding: 0 60px;
 	
 }
-
+.ind{
+	display: flex;
+	justify-content: end;
+}
 .index, p {
 	margin: 0;   
 }
@@ -152,3 +160,4 @@ small{
 .logo-small-profile-list {
     width: 100px
 }
+
