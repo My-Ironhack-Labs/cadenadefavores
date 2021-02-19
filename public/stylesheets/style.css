@@ -48,7 +48,8 @@ small {
 
 .contenedor {
   display: flex;
-  width: 700px;
+  justify-content: center;
+  width: 100%;
   height: 100px;
   color: #fff;
   font-size: 80px;
@@ -60,6 +61,14 @@ small {
   left: 0;
   margin: auto;
   overflow: hidden; }
+
+@media (max-width: 800px) {
+  .contenedor {
+    font-size: 50px; } }
+
+@media (max-width: 500px) {
+  .contenedor {
+    font-size: 30px; } }
 
 .index {
   list-style: none;
