@@ -1,6 +1,6 @@
 <div class="container" style="margin-top: 50px;">
   <div class="row justify-content-center">
-    <div class="col-md-10">
+    <div class="col-md-6">
       <h1 style="margin-left: 30px;"> Detalles Favores</h1>
       <hr>
       <ul>
@@ -18,13 +18,13 @@
               <label for="started">started: {{favour.started}}</label>
               <input name="started" type="text" class="form-control d-none" id="started" value="true" readonly>
             </div>
-             <div class="form-group">
+            <div class="form-group">
               <label for="id">id: {{id}}</label>
               <input name="give" type="text" class="form-control d-none" id="id" value="{{id}}" readonly>
             </div>
             <button id="hacerFav" type="submit" class="btn btn-light">Hacer favor</button>
-          </form>   
-      
+          </form>
+
           {{/unless}}
 
           {{#if favour.started}}
@@ -41,26 +41,22 @@
           </form>
           {{/if}}
           <div class="container">
-            <div class="row" >
-              <div class="col-md-4"style="margin-top: 50px;">
-               <a class="btn btn-light" style="margin-bottom: 20px;"href="/favores/editar/{{favour._id}}">Editar</a>
-              </div>   
-              <div class="col-md-4"style="margin-top: 50px;">
-              <a href="/favores" style="margin-bottom: 20px;"class="btn btn-light">Favores</a>
+            <div class="row">
+              <div class="col-md-4" style="margin-top: 50px;">
+                <a class="btn btn-light" style="margin-bottom: 20px;" href="/favores/editar/{{favour._id}}">Editar</a>
               </div>
-              <div class="col-md-4"style="margin-top: 50px;">
-              <form method="POST" action="/favores/eliminar/{{favour._id}}">
-              <button type="submit" class="btn btn-light"style="margin-bottom: 20px;">Borrar</button>
-              </div>    
+              <div class="col-md-4" style="margin-top: 50px;">
+                <a href="/favores" style="margin-bottom: 20px;" class="btn btn-light">Favores</a>
+              </div>
+              <div class="col-md-4" style="margin-top: 50px;">
+                <form method="POST" action="/favores/eliminar/{{favour._id}}">
+                  <button type="submit" class="btn btn-light" style="margin-bottom: 20px;">Borrar</button>
+                </form>
               </div>
             </div>
           </div>
-          </form>
-        <hr>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
-  </div>
-
-  {{!-- <script src="../../javascripts/favour-button-config.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> --}}
+</div>

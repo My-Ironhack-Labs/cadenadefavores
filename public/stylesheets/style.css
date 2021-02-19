@@ -21,9 +21,7 @@ small {
   color: ivory; }
 
 .btn:hover {
-  color: #195f2a;
-  font-weight: bold;
-  font-size: 1.3em; }
+  color: #195f2a; }
 
 #map {
   height: 600px;

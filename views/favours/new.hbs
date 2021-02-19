@@ -16,7 +16,7 @@
           <label for="address"> Direccion</label>
           <input name="address" type="text" class="form-control" id="address">
         </div>
-        <div class="form-row">
+        {{!-- <div class="form-row">
           <div class="col">
             <div class="form-group">
               <label for="latitude">Latitude</label>
@@ -29,14 +29,14 @@
               <input name="longitude" type="text" class="form-control" id="longitude">
             </div>
           </div>
-        </div>
-        <div class="form-group">
+        </div> --}}
+        <div class="form-group d-none">
           <label for="receive"> Quién lo pide</label>
           <input name="receive" type="text" class="form-control" id="receive" value="{{user._id}}" readonly>
         </div>
 
         <button type="submit" class="btn btn-light">Guardar cambios</button>
-        <a href="/favores" class="btn btn-outline-dark">Favores</a>
+        <a href="/favores" class="btn btn-outline-light">Favores</a>
       </form>
     </div>
   </div>

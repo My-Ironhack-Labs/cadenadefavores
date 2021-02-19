@@ -6,7 +6,6 @@ const Favour = require('../models/favour.model')
 
 router.get('/favores/detalles/:_id', (req, res) => {
   let favourId = req.params._id
-  console.log(favourId)
   Favour
     .findById(favourId)
     .then(response => res.json(response))

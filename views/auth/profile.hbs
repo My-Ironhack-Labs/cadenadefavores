@@ -1,12 +1,14 @@
 {{#if user}}
 <div class="container" id="profile">
-  <figure><img class="avatar-profile-view" style="width:10%;margin:40px auto;"src="{{user.avatar}}" alt="avatar"></figure>
-  <a href="/usuario/editar/{{user._id}}"style="margin-bottom: 20px;"class="btn btn-light">Editar usuario</a>
+  <figure><img class="avatar-profile-view" style="width:10%;margin:40px auto;" src="{{user.avatar}}" alt="avatar">
+  </figure>
+  <a href="/usuario/editar/{{user._id}}" style="margin-bottom: 20px;" class="btn btn-outline-light">Editar usuario</a>
   <p id="ranking" data-ranking={{numFavoursD}}> </p>
   <div class="title-carousel">
-   <h2 class="profile-favours"><img src="https://img.icons8.com/office/40/000000/receive-cash.png"/>  Favores recibidos</h2>
+    <h2 class="profile-favours"><img src="https://img.icons8.com/office/40/000000/receive-cash.png" /> Favores recibidos
+    </h2>
   </div>
-  
+
   {{#if favoursDone}}
   <div class="glide">
     <div class="glide__track" data-glide-el="track">
@@ -14,7 +16,7 @@
         {{#each listFavs}}
         {{#unless finished}}
         <li class="glide__slide">
-         
+
           {{>favourElmList}}
         </li>
         {{else}}
@@ -27,26 +29,27 @@
   {{/if}}
 
   <div class="title-carousel">
-  <h2 class="profile-favours"><img src="https://img.icons8.com/emoji/48/000000/check-box-with-check-emoji.png"/>  Favores realizados </h2>
+    <h2 class="profile-favours"><img src="https://img.icons8.com/emoji/48/000000/check-box-with-check-emoji.png" />
+      Favores realizados </h2>
   </div>
 
   <div class="container">
     <ul>
       <div class="row justify-content-center">
-      {{#each favoursDone}}
-      <div class="col-md-4">
-        <li class="given-favour-user-elm">
-         {{>favourElmList}}
-        </li>
-       </div>
+        {{#each favoursDone}}
+        <div class="col-md-4">
+          <li class="given-favour-user-elm">
+            {{>favourElmList}}
+          </li>
+        </div>
         {{/each}}
       </div>
     </ul>
-   
+
   </div>
-<form method="POST" action="/usuario/dar-de-baja/{{user._id}}">
-<button type="submit" class="btn btn-light" style="margin: 70px 0;">Darse de baja</button>
-</form>
+  <form method="POST" action="/usuario/dar-de-baja/{{user._id}}">
+    <button type="submit" class="btn btn-outline-light" style="margin: 70px 0;">Darse de baja</button>
+  </form>
 
 </div>
 
