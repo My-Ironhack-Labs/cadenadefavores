@@ -5,8 +5,6 @@ const bcrypt = require("bcrypt")
 const bcryptSalt = 10
 const passport = require("passport")
 
-
-
 router.get('/registro', (req, res) => res.render('./auth/signup'))
 router.post("/registro", (req, res, next) => {
 
@@ -19,7 +17,6 @@ router.post("/registro", (req, res, next) => {
         .findOne({ username })
         .then(user => {
             if (user) {
-                console.log('El usuario es', user)
                 res.render("auth/signup", { errorMsg: "El usuario ya existe" })
                 return
             }
@@ -40,9 +37,9 @@ router.post("/iniciar-sesion", passport.authenticate("local", {
     passReqToCallback: true
 }))
 
-
 router.get("/cerrar-sesion", (req, res) => {
     req.logout();
     res.redirect("/");
 });
+
 module.exports = router

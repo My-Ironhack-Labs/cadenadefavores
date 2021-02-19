@@ -13,13 +13,12 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true,
-
     },
     description: String,
     avatar: {
         type: String,
         default: '/images/logo_small_icon_only.png'
-    },//meter imagen por defecto
+    },
     role: {
         type: String,
         default: 'user',

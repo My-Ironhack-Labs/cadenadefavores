@@ -3,7 +3,6 @@ const router = express.Router()
 const Favour = require('../models/favour.model')
 const User = require('../models/user.model')
 
-
 router.get('/', (req, res) => {
 
     const user = req.user
@@ -15,8 +14,8 @@ router.get('/', (req, res) => {
 
 router.get('/nuevo', (req, res) => {
 
-    const user_id = req.user._id
-    const user = req.user
+    const user_id = req.user._id, user = req.user
+
     User
         .findById(user_id)
         .then(elm => res.render('favours/new', { elm, user }))
@@ -30,6 +29,7 @@ router.post('/nuevo', (req, res) => {
         type: 'Point',
         coordinates: [latitude, longitude]
     }
+
     Favour
         .create({ title, description, address, receive, location })
         .then(() => res.redirect('/favores'))
@@ -37,7 +37,9 @@ router.post('/nuevo', (req, res) => {
 })
 
 router.get('/detalles/:_id', (req, res) => {
+
     const user = req.user, _id = req.params._id, user_id = req.user._id
+    
     Favour
         .findById(_id)
         .then(favour => res.render('favours/details', { favour, id: user_id, user }))

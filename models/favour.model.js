@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { stringify } = require("querystring");
 const Schema = mongoose.Schema;
 
 const favourSchema = new Schema({
@@ -13,7 +12,6 @@ const favourSchema = new Schema({
     description: {
         type: String,
         required: true,
-
     },
     location: {
         type: {
@@ -22,7 +20,6 @@ const favourSchema = new Schema({
         coordinates: [Number]
     },
     address: String,
-
     status: {
         type: String,
         default: 'active',
@@ -46,7 +43,6 @@ const favourSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }
-
 }, {
     timestamps: true
 });

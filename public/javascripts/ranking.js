@@ -2,7 +2,6 @@
 window.onload = () => {
     let ranking = document.getElementById('ranking').dataset.ranking
     let rankingtext = document.getElementById('ranking')
-    console.log(ranking)
     if (ranking < 2) {
         rankingtext.innerHTML = 'Nivel: Usuario <img src="https://img.icons8.com/fluent/48/000000/dove.png"/>'
     }

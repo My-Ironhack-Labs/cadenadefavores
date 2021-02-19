@@ -5,8 +5,6 @@ const Favour = require('../models/favour.model')
 const { checkLoggedIn, checkRole } = require('./../middleware')
 const { isAdmin } = require('./../utils')
 
-
-
 router.get('/admin-perfil', checkLoggedIn, checkRole('admin'), (req, res) => {
 
     let totalFavours
@@ -43,24 +41,6 @@ router.post('/admin-perfil/eliminar-usuario/:_id', (req, res) => {
         .then(() => res.redirect('/usuario/admin-perfil'))
         .catch(error => next(new Error(error)))
 })
-
-// router.get('/perfil', (req, res) => {
-
-//     let userId = req.user._id, favoursR, numFavoursD
-
-//     Favour
-//         .findReceivers(userId)
-//         .then(favoursReceived => {
-//             favoursR = favoursReceived
-//             return Favour.countGivers(userId)
-//         })
-//         .then(favoursDoneN => {
-//             numFavoursD = favoursDoneN
-//             return Favour.findGivers(userId)
-//         })
-//         .then(favoursDone => res.render('./auth/profile', { user: req.user, listFavs: favoursR, numFavoursD: numFavoursD, favoursDone: favoursDone }))
-//         .catch(error => console.log(error))
-// })
 
 router.get('/perfil', (req, res) => {
 

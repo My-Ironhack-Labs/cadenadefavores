@@ -9,21 +9,20 @@ function initMap() {
 }
 
 function geocodeAddress(geocoder, myMap) {
-  let favoursArray = document.querySelectorAll(".favourList");
-  console.log(favoursArray)
+let favoursArray = document.querySelectorAll(".favourList");
 
-  favoursArray.forEach(favour => {
-    let par = favour.querySelectorAll('p')
-    geocoder.geocode({ address: par[2].innerHTML }, (results, status) => {
-      console.log(par)
-      if (status === "OK") {
-        myMap.setCenter(results[0].geometry.location);
-        const marker = new google.maps.Marker({
+favoursArray.forEach(favour => {
+  let par = favour.querySelectorAll('p')
+  geocoder.geocode({ address: par[2].innerHTML }, (results, status) => {
+    if (status === "OK") {
+      myMap.setCenter(results[0].geometry.location);
+      const marker = new google.maps.Marker({
           map: myMap,
           title: par[0].innerHTML,
           position: results[0].geometry.location,
-        });
-        const contentString =
+       });
+
+       const contentString =
           `<div>` +
           `<h1 style="color:#195f2a">${par[0].innerHTML}</h1>` +
           `<div>` +
@@ -33,41 +32,26 @@ function geocodeAddress(geocoder, myMap) {
           `<a style="color:#195f2a" href="/favores/detalles/${par[4].innerHTML} ">Link</a> ` +
           `</div>` +
           `</div>`;
-        const infowindow = new google.maps.InfoWindow({
+      const infowindow = new google.maps.InfoWindow({
           content: contentString,
         });
         marker.addListener("click", () => {
           infowindow.open(myMap, marker);
         });
-      } else {
+      }else {
         alert("Geocode was not successful for the following reason: " + status);
       }
     });
   })
-  // geocoder.geocode({ address: address }, (results, status) => {
-  //   console.log(address)
-  //   if (status === "OK") {
-  //     myMap.setCenter(results[0].geometry.location);
-  //     new google.maps.Marker({
-  //       map: myMap,
-  //       position: results[0].geometry.location,
-  //     });
-  //   } else {
-  //     alert("Geocode was not successful for the following reason: " + status);
-  //   }
-  // });
 }
-
 
 function getDirections() {
   axios
     .get('/api/favores')
-    .then(response => {
-      console.log(response)
-      pinFavours(response.data)
-    })
+    .then(response => pinFavours(response.data))
     .catch(err => console.log(err))
 }
+
 function pinFavours(favours) {
   favours.forEach(elm => {
     let position = { lat: elm.location.coordinates[0], lng: elm.location.coordinates[1] }
